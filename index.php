@@ -1,4 +1,4 @@
-<!-- <php
+<?php
     session_start();
 
     if (isset($_POST["sesion"])) {
@@ -10,7 +10,7 @@
     $consulta1 = $DB_con->prepare('SELECT * FROM producto');
     $consulta1->execute();
     $productos = $consulta1->fetchAll(PDO::FETCH_ASSOC);
-?> -->
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
