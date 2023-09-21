@@ -31,8 +31,8 @@
         </ul>
         <!-- sign up/ login -->
         <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-            <a href="" class="text-white text-decoration-none">Inicio Sesion</a>
-            <a href="" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color:blue;">Registrarse</a>
+            <a href="../login-registro.php" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color:blue;">Inicio Sesion</a>
+            <a href="../inicio.php">inicio</a>
         </div>
       </div>
     </div>

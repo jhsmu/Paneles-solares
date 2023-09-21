@@ -29,7 +29,7 @@
     <!-- css cuerpo -->
     <link rel="stylesheet" href="./css/style_cuerpo.css">
     <link rel="stylesheet" href="./css/style.css">
-      <link rel="icon" type="image/x-icon" href="./img/logo/icono.png">
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <title>QuibdóSolar</title>
 </head>
 
@@ -49,11 +49,7 @@
                 $principio = 3;
                 $numero = 1;
                 foreach ($productos as $key => $producto) {
-                    $consultaM = $DB_con->prepare('SELECT * FROM marca WHERE id_marca=:id');
-                    $consultaM->bindParam(":id", $producto["id_marca"]);
-                    $consultaM->execute();
-                    $marca = $consultaM->fetch(PDO::FETCH_ASSOC);
-                    if ($producto["estado_producto"]==0 || $marca["estado_marca"]==0) {
+                    if ($producto["estado_producto"]==0) {
                         $principio++;
                         $limite++;
                         continue;
@@ -74,7 +70,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title"><strong><?php echo $producto['producto'] ?></strong></h5>
-                            <p style="text-align: justify;"><?php echo $producto['descripcion_breve'] ?></p>
+                            <!-- <p style="text-align: justify;"><php echo $producto['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($producto['precio']) ?></p>
                             <a style="margin-left: 7rem;"
@@ -125,11 +121,7 @@
                 <!-- card 3 -->
                 <?php
                 for ($i = $principio; $i < $limite; $i++) {
-                    $consultaM = $DB_con->prepare('SELECT * FROM marca WHERE id_marca=:id');
-                    $consultaM->bindParam(":id", $productos[$i]["id_marca"]);
-                    $consultaM->execute();
-                    $marca = $consultaM->fetch(PDO::FETCH_ASSOC);
-                    if ($productos[$i]["estado_producto"]==0 || $marca["estado_marca"]==0) {
+                    if ($productos[$i]["estado_producto"]==0) {
                         $limite++;
                         continue;
                     } else {
@@ -149,7 +141,7 @@
                         </figure>
                         <div class="card-body">
                             <h5 class="card-title"><strong><?php echo $productos[$i]['producto'] ?></strong></h5>
-                            <p style="text-align: justify;"><?php echo $productos[$i]['descripcion_breve'] ?></p>
+                            <!-- <p style="text-align: justify;"><php echo $productos[$i]['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($productos[$i]['precio']) ?></p>
                             <a style="margin-left: 7rem;"
