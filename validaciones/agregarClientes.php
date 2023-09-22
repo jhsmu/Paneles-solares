@@ -38,7 +38,7 @@ if (isset($_POST["crear"])) {
                 $email = $_POST["email_registro"];
                 $telefono = $_POST["telefono"];
 
-                $agregar = $DB_con->prepare('INSERT INTO cliente(apellido, nombre, email, direccion, telefono, contrasenia, estado) VALUES(?, ?, ?, ?, ?, ?, ?)');
+                $agregar = $DB_con->prepare('INSERT INTO cliente(nombre,apellido,  email, direccion, telefono, contrasenia, estado) VALUES(?, ?, ?, ?, ?, ?, ?)');
                 $ver = $agregar->execute([$nombre,$apellido,$email,$direccion,$telefono,$contrasena,$estado]);
 
                 try{

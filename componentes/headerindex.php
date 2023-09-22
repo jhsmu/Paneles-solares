@@ -14,25 +14,24 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
+            <a class="nav-link" href="./nosotros.php">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Servicios</a>
+            <a class="nav-link" href="./serivicios.php">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cotizaciones</a>
+            <a class="nav-link" href="./cotizaciones.php">Cotizaciones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
+            <a class="nav-link" href="./blogs.php">Blog</a>
           </li>
         </ul>
         <!-- sign up/ login -->
         <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-            <a href="../login-registro.php" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color:blue;">Inicio Sesion</a>
-            <a href="../inicio.php">inicio</a>
+            <a href="./login-registro.php" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color:#2ECC71;">Inicio Sesion</a>
         </div>
       </div>
     </div>

@@ -24,10 +24,10 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./inicio.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
+            <a class="nav-link" href="./nosotrosinicio.php">Nosotros</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Servicios</a>
