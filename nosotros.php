@@ -19,7 +19,7 @@
 <body>
   <!-- encabezado -->
     <header>
-    <?php include("./componentes/headerindex.php"); ?>
+    <?php include("./componentes/header.php"); ?>
     </header>
 
     <div class="container">
@@ -38,26 +38,43 @@
         </div>
             </div>
         </div>
+        
         <div class="row">
-            <!-- Mision -->
+    <!-- Mision -->
         <div class="col-sm-6 mb-3">
-        <div>
-      <div class="card-body ">
-        <h2 class="card-title" style="text-align: center;">Misión</h2>
-        <p class="card-text" style="text-align: justify;">Nuestra misión en Quibdosolar es liderar la transición hacia un futuro más sostenible y limpio al proporcionar soluciones de energía solar accesibles y eficientes. Nos esforzamos por empoderar a individuos, comunidades y empresas para que adopten la energía solar como una fuente de energía confiable y respetuosa con el medio ambiente. Buscamos marcar la diferencia al contribuir a la reducción de la huella de carbono y fomentar un mundo más verde y sostenible..</p>
+      <div class="card border-0">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="./img/fondo.jpeg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h2 class="card-title" style="text-align: center;">Misión</h2>
+            <p class="card-text" style="text-align: justify;">Empoderar a las personas y empresas a través de soluciones de energía solar confiables y asequibles, contribuyendo así a la transición hacia un futuro más sostenible.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-            </div>
+      
     <!-- Vision -->
-            <div class="col-sm-6 mb-3">
-        <div>
-      <div class="card-body">
-        <h2 class="card-title" style="text-align: center;">Visión</h2>
-        <p class="card-text" style="text-align: justify;">Nuestra visión en Quibdosolar es ser un referente global en la industria de la energía solar, reconocidos por nuestra innovación, calidad y compromiso con el medio ambiente. Visualizamos un mundo en el que la energía solar sea la fuente de energía dominante, y trabajamos incansablemente para hacer realidad esta visión. Buscamos transformar la forma en que se genera y consume energía, creando un impacto positivo en la sociedad y el planeta al proporcionar soluciones solares accesibles y eficaces para todas las personas y organizaciones..</p>
-     
+    
+    <div class="col-sm-6 mb-3">
+      <div class="card border-0">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="./img/fondo.jpeg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title" style="text-align: center;">Visión</h2>
+              <p class="card-text" style="text-align: justify;">Ser reconocidos a nivel mundial como un referente en energía solar, liderando el camino hacia un mundo donde la energía solar sea la principal fuente de energía, promoviendo la sostenibilidad y la reducción de la huella de carbono.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-            </div>
+
         </div>
     </div>
    

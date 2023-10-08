@@ -27,7 +27,6 @@
     <!-- css footer y el header -->
     <link rel="stylesheet" href="./css/footer-header.css">
     <!-- css cuerpo -->
-    <link rel="stylesheet" href="./css/style_cuerpo.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <title>QuibdóSolar</title>
@@ -73,11 +72,12 @@
                             <!-- <p style="text-align: justify;"><php echo $producto['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($producto['precio']) ?></p>
+                        </div>
+                        <div class="card-footer">
                             <a style="margin-left: 7rem;"
                                 href="./descripcion.php?id=<?php echo $producto['id_producto'] ?>"
-                                class="btn btn-primary">Ver mas</a>
-                        </div>
-
+                                class="btn btn-primary">Comprar</a>                       
+                         </div>
                     </div>
 
                 </div>
@@ -91,19 +91,21 @@
                     }
                 }
                 ?>
+                <div class="linea-arriba">
 
+                </div>
                 <!-- carusel -->
                 <div id="carouselExampleAutoplaying" class="carousel slide mt-3 mb-3" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./img/carrusel/1.1.jpg" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/fondo2.jpeg" height="250px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://hardzone.es/app/uploads-hardzone.es/2022/02/Intel-vs-AMD-2022.jpg"
+                            <img src="./img/fondo.jpeg"
                                 height="250px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/carrusel/3.1.png" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/fondo1.jpeg" height="250px" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -116,6 +118,10 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                </div>
+
+                <div class="linea-abajo">
+
                 </div>
 
                 <!-- card 3 -->
@@ -144,10 +150,12 @@
                             <!-- <p style="text-align: justify;"><php echo $productos[$i]['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($productos[$i]['precio']) ?></p>
-                            <a style="margin-left: 7rem;"
-                                href="./descripcion.php?id=<?php echo $productos[$i]['id_producto'] ?>"
-                                class="btn btn-primary">Ver más</a>
                         </div>
+                        <div class="card-footer">
+                            <a style="margin-left: 7rem;"
+                                href="./descripcion.php?id=<?php echo $producto['id_producto'] ?>"
+                                class="btn btn-primary">Comprar</a>                       
+                         </div>
                     </div>
                 </div>
                 <?php

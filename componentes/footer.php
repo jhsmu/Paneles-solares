@@ -2,7 +2,7 @@
 <div class="grupo1">
             <div class="box">
                 <figure>
-                    <a href=""><img src="./img/logo.png"  alt="Logo Techno Solutions"></a>
+                    <a href=""><img src="./img/logo.png"  alt="Logo Quibdosolar"></a>
                 </figure>
             </div>
             <div class="box mt-5 pt-5">
@@ -20,6 +20,6 @@
             </div>
         </div>
         <div class="grupo2">
-            <small>&copy; 2022 <b>Techno Solution</b> --Todos Los Derechos Reservados</small>
+            <small>&copy; 2023 <b>Quibdosolar</b> --Todos Los Derechos Reservados</small>
         </div>
 </footer>

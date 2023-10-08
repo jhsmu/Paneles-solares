@@ -73,11 +73,12 @@
                             <!-- <p style="text-align: justify;"><php echo $producto['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($producto['precio']) ?></p>
+                        </div>
+                        <div class="card-footer">
                             <a style="margin-left: 7rem;"
                                 href="./descripcion.php?id=<?php echo $producto['id_producto'] ?>"
-                                class="btn btn-primary">Ver mas</a>
-                        </div>
-
+                                class="btn btn-primary">Comprar</a>                       
+                         </div>
                     </div>
 
                 </div>
@@ -90,7 +91,10 @@
                         }
                     }
                 }
-                ?>
+                ?> 
+                <div class="linea-arriba">
+
+                </div>
 
                 <!-- carusel -->
                 <div id="carouselExampleAutoplaying" class="carousel slide mt-3 mb-3" data-bs-ride="carousel">
@@ -116,6 +120,10 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                </div>
+
+                <div class="linea-abajo">
+
                 </div>
 
                 <!-- card 3 -->
@@ -144,10 +152,12 @@
                             <!-- <p style="text-align: justify;"><php echo $productos[$i]['descripcion_breve'] ?></p> -->
                             <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                                 $ <?php echo number_format($productos[$i]['precio']) ?></p>
-                            <a style="margin-left: 7rem;"
-                                href="./descripcion.php?id=<?php echo $productos[$i]['id_producto'] ?>"
-                                class="btn btn-primary">Ver más</a>
                         </div>
+                        <div class="card-footer">
+                            <a style="margin-left: 7rem;"
+                                href="./descripcion.php?id=<?php echo $producto['id_producto'] ?>"
+                                class="btn btn-primary">Comprar</a>                       
+                         </div>
                     </div>
                 </div>
                 <?php

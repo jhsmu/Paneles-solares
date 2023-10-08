@@ -1,0 +1,13 @@
+.linea-arriba{
+    height: 10px;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #2ECC71;
+}
+
+.linea-abajo{
+    height: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #2ECC71;
+}

@@ -2,7 +2,7 @@
 
 $Localhost = 'localhost';
 $Usuario_BD = 'root';
-$Password_BD = '';
+$Password_BD = 'root';
 $Nombre_BD = 'quibdosolar';
 
 try{
