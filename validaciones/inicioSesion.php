@@ -4,6 +4,7 @@
     require '../database/conexion.php';
 
     if(isset($_POST["inicio"])){
+        
         $email_i=$_POST["email"];
         $contrasena=(htmlentities($_POST["clave_inicio"]));
         $contra=htmlentities($_POST["clave_inicio"]);

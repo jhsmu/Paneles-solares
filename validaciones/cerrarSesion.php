@@ -19,4 +19,3 @@
  header("location:../login-registro.php");
 
 
-?>
