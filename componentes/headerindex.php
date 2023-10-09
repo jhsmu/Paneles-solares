@@ -1,3 +1,10 @@
+<?php
+    include "./database/conexion.php"; 
+    $consulta=$DB_con->prepare('SELECT * FROM categoria');
+    $consulta->execute();
+    $categorias=$consulta->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <header class="vh-100 over-flow-hidden">
     <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -15,6 +22,30 @@
         <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tienda
+              </a>
+              <div class="transparente">
+                <div class="dropdown-menu">
+                  <?php
+                    foreach ($categorias as $key => $categoria) {
+                      if ($categoria["estado_categoria"]==1){
+                  ?>
+                    <ul>
+                      <li><a class="dropdown-item" href="./paginaCategoria.php?id=<?php echo $categoria['id_categoria'] ?>"><?php echo $categoria['categoria'] ?></a>
+                      </li>
+                    </ul>
+                  <?php
+                    } else {
+                       continue;
+                      }
+                       }
+                   ?>
+                </div>
+              </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./nosotros.php">Nosotros</a>
