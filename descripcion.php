@@ -4,7 +4,7 @@ session_start();
 error_reporting(~E_NOTICE); // avoid notice
 
 require_once './database/conexion.php';
-// include './CarroIndex/carritoIndex.php';
+include './CarroIndex/carritoIndex.php';
 
 if (isset($_GET['id'])) {
     $consulta = $DB_con->prepare('SELECT * FROM producto WHERE id_producto=:producto');
@@ -95,8 +95,10 @@ if (isset($_GET['id'])) {
                     <div class="card-body">
                         <h2 class="card-title" name="monitorAOC24" id="nombre"><?php echo $producto['producto'] ?></h2>
                         <p class="card-text">
-                        <h3>Características</h3>
+                        <h3>Descripción</h3>
                         <p class="card-text" style="text-align: justify;"><?php echo $producto['descripcion'] ?></p>
+                        <h3>Características</h3>
+                        <p class="card-text" style="text-align: justify;"><?php echo $producto['caracteristicas'] ?></p>
                         <h3 name="precio" id="precio">$ <?php echo number_format($producto['precio']) ?></h3>
                         <br>
                         <form action="" method="get">
@@ -120,7 +122,7 @@ if (isset($_GET['id'])) {
                                     ?>
 
                                     <div class="col-auto">
-                                        <button type="submit" name="botonAdd" value="agregar"
+                                        <button type="submit" name="botonAdd1" value="agregar"
                                             class="btn btn-success btn-lg" disabled>Comprar</button>
                                     </div>
                                     <div class="col-auto">
@@ -133,7 +135,7 @@ if (isset($_GET['id'])) {
                                     ?>
 
                                     <div class="col-auto">
-                                        <button type="submit" name="botonAdd" value="agregar"
+                                        <button type="submit" name="botonAdd1" value="agregar"
                                             class="btn btn-success btn-lg">Comprar</button>
                                     </div>
                                     <div class="col-auto">
@@ -157,6 +159,9 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
+    <footer>
+            <?php include("./componentes/footer.php")?>
+        </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>

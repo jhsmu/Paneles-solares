@@ -47,10 +47,80 @@ CREATE TABLE categoria(
     estado_categoria BOOLEAN NOT NULL
 );
 
+CREATE TABLE compra(
+    id_compra INT(11) PRIMARY KEY AUTO_INCREMENT,
+    id_producto INT(11) NOT NULL,
+    cantidad FLOAT(12) NOT NULL,
+    precio FLOAT(12,2) NOT NULL,
+    total FLOAT(12,2) NOT NULL,
+    fecha timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+);
+
+CREATE TABLE venta(
+    id_venta INT(11) PRIMARY KEY AUTO_INCREMENT,
+    cliente INT(11) NOT NULL,
+    total FLOAT(12,2) NOT NULL,
+    fecha timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+);
+
+CREATE TABLE detalle_venta(
+    id_detalle_venta INT(11) PRIMARY KEY AUTO_INCREMENT,
+    id_venta INT(11) NOT NULL,
+    id_producto INT(11) NOT NULL,
+    cantidad_venta INT(11) NOT NULL,
+    precio_producto  FLOAT(12,2),
+    monto_total FLOAT(12,2) NOT NULL
+);
+
+CREATE TABLE orden(
+    id_orden INT(11) PRIMARY KEY AUTO_INCREMENT,
+    cliente INT(11) NOT NULL,
+    total FLOAT(12,2) NOT NULL,
+    estado BOOLEAN NOT NULL,
+    condicion BOOLEAN NOT NULL,
+    fecha timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+);
+
+CREATE TABLE detalle_orden(
+    id_detalle_orden INT(11) PRIMARY KEY AUTO_INCREMENT,
+    cliente INT(11) NOT NULL,
+    id_orden INT(11) NOT NULL,
+    id_producto INT(11) NOT NULL,
+    cantidad_venta INT(11) NOT NULL,
+    precio_producto  FLOAT(12,2),
+    monto_total FLOAT(12,2) NOT NULL,
+    estado BOOLEAN NOT NULL,
+    extra BOOLEAN NOT NULL
+);
+
 ALTER TABLE producto ADD FOREIGN KEY(id_categoria)
 REFERENCES categoria(id_categoria);
 
 ALTER TABLE imagenes ADD FOREIGN KEY(producto_id)
+REFERENCES producto(id_producto);
+
+ALTER TABLE compra ADD FOREIGN KEY(id_producto)
+REFERENCES producto(id_producto);
+
+ALTER TABLE venta ADD FOREIGN KEY(cliente)
+REFERENCES cliente(id);
+
+ALTER TABLE detalle_venta ADD FOREIGN KEY(id_venta)
+REFERENCES venta(id_venta);
+
+ALTER TABLE detalle_venta ADD FOREIGN KEY(id_producto)
+REFERENCES producto(id_producto);
+
+ALTER TABLE orden ADD FOREIGN KEY(cliente)
+REFERENCES cliente(id);
+
+ALTER TABLE detalle_orden ADD FOREIGN KEY(cliente)
+REFERENCES cliente(id);
+
+ALTER TABLE detalle_orden ADD FOREIGN KEY(id_orden)
+REFERENCES orden(id_orden);
+
+ALTER TABLE detalle_orden ADD FOREIGN KEY(id_producto)
 REFERENCES producto(id_producto);
 
 INSERT INTO cliente ( nombre, apellido, direccion, telefono, email, contrasenia, estado) VALUES
@@ -449,16 +519,16 @@ Herramienta de doble función: Algunas spanners para conectores MC4 tienen una p
 Presentamos el Monitor LCD Regulador de Carga SL series, una herramienta esencial para optimizar y controlar tu sistema de energía solar de manera eficiente. Diseñado para ofrecer comodidad y control total, este monitor es la pieza que faltaba para llevar tu sistema solar al siguiente nivel.
 
 ','
-• Se adopta un algoritmo de carga PWM de 3 etapas actualizado. La aplicación de una carga de ecualización a la batería periódicamente o cuando se
+Se adopta un algoritmo de carga PWM de 3 etapas actualizado. La aplicación de una carga de ecualización a la batería periódicamente o cuando se
 La descarga en exceso, puede prevenir eficazmente que la batería no se ecualice y se sulfure, extendiendo así la vida útil de la batería.
-• Con la compensación de temperatura empleada, los parámetros de carga se pueden ajustar automáticamente.
-• Una amplia gama de modos de trabajo de carga facilitan la aplicación del producto a diferentes tipos de carga.
-• El producto proporciona protección contra sobrecargas, sobredescargas y sobrecargas, así como protección contra cortocircuitos.
-•En virtud de un método de arranque de carga avanzado, las cargas de gran capacitancia se pueden iniciar sin problemas.
-• El producto proporciona una pantalla LCD gráfica de matriz de puntos y una interfaz hombre-máquina con una tecla.
-• El diseño fácil de usar del navegador y las interfaces dinámicas aseguran operaciones convenientes e intuitivas.
-• Con un diseño de grado industrial, el producto puede funcionar bien en diversas condiciones difíciles.
-• Se adopta la protección de iluminación TVS.
+Con la compensación de temperatura empleada, los parámetros de carga se pueden ajustar automáticamente.
+Una amplia gama de modos de trabajo de carga facilitan la aplicación del producto a diferentes tipos de carga.
+El producto proporciona protección contra sobrecargas, sobredescargas y sobrecargas, así como protección contra cortocircuitos.
+n virtud de un método de arranque de carga avanzado, las cargas de gran capacitancia se pueden iniciar sin problemas.
+El producto proporciona una pantalla LCD gráfica de matriz de puntos y una interfaz hombre-máquina con una tecla.
+El diseño fácil de usar del navegador y las interfaces dinámicas aseguran operaciones convenientes e intuitivas.
+Con un diseño de grado industrial, el producto puede funcionar bien en diversas condiciones difíciles.
+Se adopta la protección de iluminación TVS.
 
 ', 50, '1050990',6,'1'),('T123868799', 'Tenaza Cortadora de Cable Solar PV','
 Pelacables Solar PV
@@ -496,23 +566,23 @@ INSERT INTO producto (serial, producto, descripcion, caracteristicas, cantidad, 
 ('R123058004', 'Regulador de Carga PWM 60A 24 V EPSolar','
  El controlador solar de la serie ViewStar es diseñado para el sistema solar fuera de la red, como como farola, sistema solar doméstico o pequeña central eléctrica, etc. Tiene LCD pantalla, carga de batería confiable, completa protección electrónica y programable parámetros.
 ','
-● Excelente diseño EMC
-● MCU de 32 bits con alta velocidad
-● Carga PWM de la serie de alta eficiencia
-● Cuatro opciones de tipo de batería: sellada, gel, inundada y USUARIO
-● Control inteligente de iluminación y temporizador para sistema de iluminación solar
-● Muestreo de alta precisión A / D de 12 bits para garantizar la precisión
-● Utilice MOSFET como interruptor electrónico
-● Configuración y modificación de parámetros de control total, modo de control de carga diversificado
-● Diseño humanizado de la interfaz del navegador, realice todas las operaciones cómodamente
-● Compensación de temperatura
-● Adopte la pantalla LCD gráfica de matriz de puntos y HMI (interfaz hombre-máquina) con 4 botones,
+Excelente diseño EMC
+MCU de 32 bits con alta velocidad
+Carga PWM de la serie de alta eficiencia
+Cuatro opciones de tipo de batería: sellada, gel, inundada y USUARIO
+Control inteligente de iluminación y temporizador para sistema de iluminación solar
+Muestreo de alta precisión A / D de 12 bits para garantizar la precisión
+Utilice MOSFET como interruptor electrónico
+Configuración y modificación de parámetros de control total, modo de control de carga diversificado
+Diseño humanizado de la interfaz del navegador, realice todas las operaciones cómodamente
+Compensación de temperatura
+Adopte la pantalla LCD gráfica de matriz de puntos y HMI (interfaz hombre-máquina) con 4 botones,
 visualización y funcionamiento del menú integrado
-● Función de estadísticas de energía
-● Puertos RS485 con protocolo de comunicación MODBUS
-● Software de monitoreo de PC opcional y medidor remoto para monitoreo en tiempo real y batería.
-ajuste de parámetros de gestión
-● Firmware actualizable en campo
+ Función de estadísticas de energía
+ Puertos RS485 con protocolo de comunicación MODBUS
+ Software de monitoreo de PC opcional y medidor remoto para monitoreo en tiempo real y batería.
+juste de parámetros de gestión
+Firmware actualizable en campo
 ', 50, '1050990',7,'1'),
 ('R303317699', 'Regulador de Carga- DriverMPPT 12/24 15A EPSolar','
 La serie TRACER-EPLI combina energía solar controlador de carga y controlador LED en uno unidad. Es ideal para iluminación LED solar requiriendo función de atenuación. El control El parámetro puede ser programado por APLICACIÓN móvil y SPP-02 a través de infrarrojos (IR) comunicación.
@@ -529,12 +599,24 @@ Fácil Instalación y Configuración: Adecuado tanto para usuarios principiantes
 ', 50, '1050990',7,'1');
 
 INSERT INTO imagenes (producto_id,url) VALUES
-(1, 'panel-solar-1.webp'),
-(2, 'panel-solar-2.webp'),
-(3, 'panel-solar-3.webp'),
-(4, 'panel-solar-4.webp'),
-(5, 'panel-solar-5.webp'),
-(6, 'panel-solar-6.webp');
+(1, 'panel-solar-1.jpeg'),
+(1, 'panel-solar-2.jpeg'),
+(1, 'panel-solar-3.jpeg'),
+(2, 'hqst1.jpeg'),
+(2, 'hqst2.jpeg'),
+(2, 'hqst3.webp'),
+(3, 'renogy1.jpeg'),
+(3, 'renogy2.jpeg'),
+(3, 'renogy3.jpeg'),
+(4, 'netion1.jpeg'),
+(4, 'netion2.jpeg'),
+(4, 'netion3.jpeg'),
+(5, 'Flexible1.webp'),
+(5, 'Flexible2.jpeg'),
+(5, 'Flexible3.webp'),
+(6, 'netionpoli1.jpeg'),
+(6, 'netionpoli2.jpeg'),
+(6, 'netionpoli3.webp');
 
 INSERT INTO imagenes (producto_id,url) VALUES
 (7, 'bateriagel1.webp'),

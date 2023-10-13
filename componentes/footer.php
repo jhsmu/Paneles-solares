@@ -17,6 +17,16 @@
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://twitter.com/?lang=es" class="fab fa-twitter"></a>
                 </div>
+                <div class="contactanos mt-3">
+                    <h2>Contactanos</h2>
+                    <h3> Telefono</h3>
+                    <p>3045618907</p>
+                    <h3 >Correo</h3>
+                    <p>Quibdosolar@gmail.com</p>
+                    <h3 >Direccion</h3>
+                    <p>Cra 50 #31-24 B/: medrano</p>
+
+                </div>
             </div>
         </div>
         <div class="grupo2">

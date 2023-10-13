@@ -17,7 +17,7 @@
     <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
   <div class="container">
-    <a class="navbar-brand" href="#">QuibdóSolar</a>
+    <a class="navbar-brand" href="./inicio.php">QuibdóSolar</a>
     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,10 +59,10 @@
             <a class="nav-link" href="./nosotrosinicio.php">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Servicios</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#">Cotizaciones</a>
+          </li>
+          <li class="nav-item"><a href="./mostrarCarrito.php"
+            class="nav-link">Carrito(<?php echo (empty($_SESSION['carrito']))?0:count($_SESSION['carrito']); ?>)</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Blog</a>
@@ -103,8 +103,8 @@
 </nav>
 <main>
         <section class="w-100 vh-100 d-flex flex-column justify-content-center align-items-center text-white fs-1">
-                <h1 style="font-size: 1.5em">QuibdóSolar</h1>
-                <h2 style="font-size: 1.3em">Venta de paneles solares </h2>
+            <h1 class="typing-title" style="font-size: 1.5em;"></h1>
+            <h2 class="typing-subtitle" style="font-size: 1.3em"></h2>
         </section>
     </main>
 </header>

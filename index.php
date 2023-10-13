@@ -165,6 +165,10 @@
             </div>
         </div>
 
+        <footer>
+            <?php include("./componentes/footer.php")?>
+        </footer>
+
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
 
@@ -176,4 +180,4 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
 <script src="/js/app.js"></script>
-<script>
+<script src="./js/animacion.js"></script>

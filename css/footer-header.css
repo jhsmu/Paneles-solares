@@ -6,12 +6,14 @@ header{
     background-repeat: no-repeat;
 }
 
-@media(max-width: 991px){
-    .sidebar{
-        background-color: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-    }
-}
+.typing-text {
+    font-size: 1.5em;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden; /* Oculta el exceso de texto */
+    border-right: 2px solid transparent; /* Agrega un cursor tipo máquina de escribir */
+    animation: typing 5s steps(11) infinite;
+  }
+  
 
 /* pie de pagina */
 
@@ -22,12 +24,11 @@ header{
 
 .pie-pagina .grupo1 {
     width: 100%;
-    max-width: 12000px;
-    margin: auto;
+    /* margin: auto; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
-    padding: 55px 0px;
+    /* padding: 10px 0px; */
 }
 
 .pie-pagina .grupo1 .box figure {
@@ -79,8 +80,16 @@ object-fit: cover;
 }
 .box3 h2{
     color: #fff;
-    margin-left: 15px;
-    
+    margin-left: 15px; 
+}
+.contactanos h2{
+    color: #fff;
+}
+.contactanos h3{
+    color: #fff;
+}
+.contactanos p{
+    color: #fff;
 }
 .pie-pagina .grupo2 {
     background-color: #141254;
@@ -95,4 +104,9 @@ object-fit: cover;
 
 .text {
     text-align: justify;
+}
+/* Establece una altura máxima para las secciones de descripción y características */
+.descripcion, .caracteristicas {
+    max-height: 200px; /* Ajusta esto según tus necesidades */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
 }

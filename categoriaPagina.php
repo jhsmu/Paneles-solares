@@ -28,7 +28,7 @@ require_once './database/conexion.php';
 
 <body>
     <header>
-        <?php include("./componentes/headerinicio.php"); ?>
+        <?php include("./componentes/heeader.php"); ?>
     </header>
     <?php
 
@@ -104,15 +104,15 @@ require_once './database/conexion.php';
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://www.muycomputerpro.com/wp-content/uploads/2022/09/computacion-en-paralela.jpg"
+                        <img src="./img/fondo.jpeg"
                             height="200px" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://www.notonidas.com/wp-content/uploads/2020/10/newegg-tech-pc-component-wallpaper-4-1.jpg"
+                        <img src="./img/fondo1.jpeg"
                             height="200px" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://w0.peakpx.com/wallpaper/575/922/HD-wallpaper-technology-circuit.jpg"
+                        <img src="./img/fondo2.jpeg"
                             height="200px" class="d-block w-100" alt="...">
                     </div>
                 </div>
@@ -174,6 +174,10 @@ require_once './database/conexion.php';
             ?>
         </div>
     </div>
+
+    <footer>
+        <?php include("./componentes/footer.php")?>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

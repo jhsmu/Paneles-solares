@@ -95,19 +95,18 @@
                 <div class="linea-arriba">
 
                 </div>
-
                 <!-- carusel -->
                 <div id="carouselExampleAutoplaying" class="carousel slide mt-3 mb-3" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./img/carrusel/1.1.jpg" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/fondo2.jpeg" height="250px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://hardzone.es/app/uploads-hardzone.es/2022/02/Intel-vs-AMD-2022.jpg"
+                            <img src="./img/fondo.jpeg"
                                 height="250px" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/carrusel/3.1.png" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/fondo1.jpeg" height="250px" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -166,7 +165,9 @@
                 ?>
             </div>
         </div>
-
+        <footer>
+            <?php include("./componentes/footer.php")?>
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
 
@@ -178,4 +179,28 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
 <script src="/js/app.js"></script>
-<script>
+<script src="./js/animacion.js"></script>
+
+<?php
+    if (isset($_SESSION["error_cambio"])) {
+        echo ('<script>Swal.fire({
+            title: "Error de inhabilitar",
+            text: "error al inhabilitar",
+            icon: "info" 
+        });
+        </>');
+        unset($_SESSION["error_cambio"]);
+    }
+    
+    if (isset($_SESSION['compra'])) {
+        if ($_SESSION['compra'] == true) {
+            echo'<script>Swal.fire({
+                title: "Tú Orden fue creada",
+                text: "Revisa tus Pedidos para más información",
+                icon: "success" 
+                });
+                </script>';
+            $_SESSION['compra'] = false;
+        }
+    }
+    ?>

@@ -1,6 +1,13 @@
-<header class="over-flow-hidden" style="height: 75px;">
+<?php
+    include "./database/conexion.php"; 
+    $consulta=$DB_con->prepare('SELECT * FROM categoria');
+    $consulta->execute();
+    $categorias=$consulta->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<header class="over-flow-hidden" style="height: 85px;">
     <!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
   <div class="container">
     <a class="navbar-brand" href="#">QuibdóSolar</a>
     <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -16,14 +23,38 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tienda
+              </a>
+              <div class="transparente">
+                <div class="dropdown-menu">
+                  <?php
+                    foreach ($categorias as $key => $categoria) {
+                      if ($categoria["estado_categoria"]==1){
+                  ?>
+                    <ul>
+                      <li><a class="dropdown-item" href="./paginaCategoria.php?id=<?php echo $categoria['id_categoria'] ?>"><?php echo $categoria['categoria'] ?></a>
+                      </li>
+                    </ul>
+                  <?php
+                    } else {
+                       continue;
+                      }
+                       }
+                   ?>
+                </div>
+              </div>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="./nosotros.php">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./serivicios.php">Servicios</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="./cotizaciones.php">Cotizaciones</a>
+          </li>
+          <li class="nav-item"><a href="./mostrarCarritoIndex.php"
+              class="nav-link">Carrito(<?php echo (empty($_SESSION['carritoIndex']))?0:count($_SESSION['carritoIndex']); ?>)</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./blogs.php">Blog</a>
@@ -37,10 +68,4 @@
     </div>
   </div>
 </nav>
-<main>
-        <section class="w-100 vh-100 d-flex flex-column justify-content-center align-items-center text-white fs-1">
-                <h1 style="font-size: 1.5em">QuibdóSolar</h1>
-                <h2 style="font-size: 1.3em">Venta de paneles solares </h2>
-        </section>
-    </main>
 </header>
