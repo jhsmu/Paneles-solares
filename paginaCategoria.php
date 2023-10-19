@@ -97,7 +97,7 @@
       ?>
             <!-- carusel -->
 
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleAutoplaying" class="carousel slide mb-3" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./img/fondo.jpeg"
@@ -151,7 +151,6 @@
 
                     <div class="card-body">
                         <h5 class="card-title"><strong><?php echo $producto['producto'] ?></strong></h5>
-                        <p style="text-align: justify;"><?php echo $producto['descripcion_breve'] ?></p>
                         <p name="precio" id="precio" style="margin-left: 13rem; color:grey">
                             $ <?php echo number_format($producto['precio']) ?></p>
                         <div class="col-md-6">

@@ -3,7 +3,7 @@
 $dbname="quibdosolar";
 $dbuser="root";
 $dbhost="localhost";
-$dbpass="root";
+$dbpass="";
 
 $conexion=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 

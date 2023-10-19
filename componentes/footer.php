@@ -25,7 +25,6 @@
                     <p>Quibdosolar@gmail.com</p>
                     <h3 >Direccion</h3>
                     <p>Cra 50 #31-24 B/: medrano</p>
-
                 </div>
             </div>
         </div>

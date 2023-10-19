@@ -2,7 +2,7 @@
     const subtitleElement = document.querySelector(".typing-subtitle");
 
     const titleText = "QuibdóSolar";
-    const subtitleText = "Venta de paneles solares";
+    const subtitleText = "Venta de Paneles Solares";
 
     function typeText(element, text) {
       return new Promise((resolve) => {

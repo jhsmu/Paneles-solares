@@ -101,7 +101,7 @@ require_once './database/conexion.php';
             ?>
             <!-- carusel -->
 
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleAutoplaying" class="carousel slide mb-3" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./img/fondo.jpeg"
