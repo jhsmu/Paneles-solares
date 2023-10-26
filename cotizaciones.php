@@ -67,76 +67,119 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="d-flex flex-column justify-content-center align-items-center text-black fs-1">
-                <h1 style="font-size: 0.9em;">Cotizacion</h1>
-            </div>
-            <p class="">Si eres nuevo en esto de energia renobable puedes cotizar nuestros servicios, costos de mano de obra, mantenimiento, etc </p>
-            <div class="lineaarriba">
+            
+                <div class="d-flex flex-column justify-content-center align-items-center text-black fs-1">
+                    <h1 style="font-size: 0.9em;">Cotizacion</h1>
+                </div>
+                <p class="">Si eres nuevo en esto de energia renobable puedes cotizar nuestros servicios, costos de mano de obra, mantenimiento, etc </p>
+                <div class="lineaarriba"></div>
+                <!-- primer formulario -->
+                <div class="col-7">
+                    
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Formulario de selección de categoría -->
+                        <form method="post">
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Default select example" name="categoria" onchange="cambio()">
+                                    <option value="" selected type="hidden">Selecciona una categoría</option>
+                                    <?php
+                                    foreach ($categorias as $key => $categoria) {
+                                        if ($categoria["estado_categoria"] == 1) {
+                                            if (isset($_SESSION["id_categoria"]) && $_SESSION["id_categoria"] == $categoria["id_categoria"]) {
+                                                ?>
+                                                <option value="<?php echo $categoria["id_categoria"] ?>" selected><?php echo $categoria["categoria"] ?></option>
+                                            <?php
+                                            } else {
+                                                ?>
+                                                <option value="<?php echo $categoria["id_categoria"] ?>"><?php echo $categoria["categoria"] ?></option>
+                                            <?php
+                                            }
+                                        } else {
+                                            continue;
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <button type="submit" id="boton" hidden>Enviar</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Formulario de selección de producto -->
+                        <form method="post">
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Default select example" name="producto" onchange="cambio2()">
+                                    <option value="" selected type="hidden">Selecciona un producto</option>
+                                    <?php
+                                    foreach ($_SESSION["productos"] as $key => $producto) {
+                                        if ($producto["estado_producto"] == 0) {
+                                            continue;
+                                        } else {
+                                            if (isset($_SESSION["id_producto"]) && $_SESSION["id_producto"] == $producto["id_producto"]) {
+                                                ?>
+                                                <option value="<?php echo $producto["id_producto"] ?>" selected><?php echo $producto["producto"] ?></option>
+                                            <?php
+                                            } else {
+                                                ?>
+                                                <option value="<?php echo $producto["id_producto"] ?>"><?php echo $producto["producto"] ?></option>
+                                            <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <button type="submit" id="boton2" hidden></button>
+                        </form>
+                    </div>
+                    </div>                 
+                </div>
 
-            </div>
-            <!-- primer formulario -->
-            <div class="col-7">
-                
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Formulario de selección de categoría -->
-                    <form method="post">
-                        <div class="mb-3">
-                            <select class="form-select" aria-label="Default select example" name="categoria" onchange="cambio()">
-                                <option value="" selected type="hidden">Selecciona una categoría</option>
-                                <?php
-                                foreach ($categorias as $key => $categoria) {
-                                    if ($categoria["estado_categoria"] == 1) {
-                                        if (isset($_SESSION["id_categoria"]) && $_SESSION["id_categoria"] == $categoria["id_categoria"]) {
-                                            ?>
-                                            <option value="<?php echo $categoria["id_categoria"] ?>" selected><?php echo $categoria["categoria"] ?></option>
-                                        <?php
-                                        } else {
-                                            ?>
-                                            <option value="<?php echo $categoria["id_categoria"] ?>"><?php echo $categoria["categoria"] ?></option>
-                                        <?php
-                                        }
-                                    } else {
-                                        continue;
-                                    }
-                                }
-                                ?>
-                            </select>
+                <!-- segundo formulario -->
+                <div class="col-5">
+                    <form action="./agregar.php" method="post">
+                        <?php
+                            if (isset($product)) {
+                        ?>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <img src="./imagenes/<?php echo $imagenes[0]['url'] ?>" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="mb-2">
+                                        <h3 class="text-dark  mb-2"  style="font-size: 0.7rem;"><?php echo $product['producto'] ?></h3>
+                                        <input type="text" name="nombreproducto" value="<?php echo $product['producto'] ?>"  hidden>
+                                        <p class="text-gray-700 text-base" style="font-size: 0.6rem;">
+                                            Precio: $<?php echo number_format($product["precio"] * 0.6) ?></p>
+                                        <input  type="number" name="preciocompra" id="" value="<?php echo $product["precio"] ?>" hidden>
+                                        <input type="number" name="idProducto" id=""
+                                            value="<?php echo $product["id_producto"] ?>" hidden>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-6 mb-3">
+                                <input type="number" class="form-control" style="width: 60px;" name="cantidadcompra" id="cantidadUsu" required onchange="cantidad123()" placeholder="0">
+                                </div>
+                                <div class="col-4 mb-3">
+                                <button class="btn btn-primary" name="agregarproducto" class="rounded">agregar</button>    
+                                </div>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" id="boton" hidden>Enviar</button>
+                        <?php
+                            }
+                        ?>
                     </form>
                 </div>
-                <div class="col-md-6">
-                    <!-- Formulario de selección de producto -->
-                    <form method="post">
-                        <div class="mb-3">
-                            <select class="form-select" aria-label="Default select example" name="producto" onchange="cambio2()">
-                                <option value="" selected type="hidden">Selecciona un producto</option>
-                                <?php
-                                foreach ($_SESSION["productos"] as $key => $producto) {
-                                    if ($producto["estado_producto"] == 0) {
-                                        continue;
-                                    } else {
-                                        if (isset($_SESSION["id_producto"]) && $_SESSION["id_producto"] == $producto["id_producto"]) {
-                                            ?>
-                                            <option value="<?php echo $producto["id_producto"] ?>" selected><?php echo $producto["producto"] ?></option>
-                                        <?php
-                                        } else {
-                                            ?>
-                                            <option value="<?php echo $producto["id_producto"] ?>"><?php echo $producto["producto"] ?></option>
-                                        <?php
-                                        }
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <button type="submit" id="boton2" hidden></button>
-                    </form>
-                </div>
-            </div>                 
-                <!-- Verifica si hay elementos en la cotización -->
-                <div class="">
+        </div>
+    </div>
+
+    <div class="container">
+                        <!-- Verifica si hay elementos en la cotización -->
+                        <div class="">
                 <?php if (!empty($_SESSION['cotizacion'])) : ?>
                     <h2>Cotización Actual</h2>
                     <table class="table table-light table-bordered">
@@ -201,47 +244,6 @@
                     </tr>
                 <?php endif; ?>
                 </div>
-            </div>
-
-            <!-- segundo formulario -->
-            <div class="col-5">
-                <form action="./agregar.php" method="post">
-                    <?php
-                        if (isset($product)) {
-                    ?>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <img src="./imagenes/<?php echo $imagenes[0]['url'] ?>" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-md-6 ">
-                                <div class="mb-2">
-                                    <h3 class="text-dark  mb-2"  style="font-size: 0.7rem;"><?php echo $product['producto'] ?></h3>
-                                    <input type="text" name="nombreproducto" value="<?php echo $product['producto'] ?>"  hidden>
-                                    <p class="text-gray-700 text-base" style="font-size: 0.6rem;">
-                                        Precio: $<?php echo number_format($product["precio"] * 0.6) ?></p>
-                                    <input  type="number" name="preciocompra" id="" value="<?php echo $product["precio"] ?>" hidden>
-                                    <input type="number" name="idProducto" id=""
-                                        value="<?php echo $product["id_producto"] ?>" hidden>
-
-                                </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-6 mb-3">
-                            <input type="number" class="form-control" style="width: 60px;" name="cantidadcompra" id="cantidadUsu" required onchange="cantidad123()" placeholder="0">
-                            </div>
-                            <div class="col-4 mb-3">
-                            <button class="btn btn-primary" name="agregarproducto" class="rounded">agregar</button>    
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    ?>
-                </form>
-            </div>
-        </div>
     </div>
     <!-- Pie de pagina -->
     <footer>
