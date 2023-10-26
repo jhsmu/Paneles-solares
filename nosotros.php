@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- css bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- iconos en fontawesome -->
     <script src="https://kit.fontawesome.com/4b93f520b2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@12/dist/sweetalert2.min.css">
+    
+
     <!-- css foote y el header -->
-   <link rel="stylesheet" href="./css/footer-header.css">
+    <link rel="stylesheet" href="./css/footer-header.css">
     <!-- css cuerpo -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
@@ -88,66 +91,87 @@
       </div>
       <p class="">Aqui puedes contactarte con nosotros por alguna queja, sugerencia o algun inconveniente presentado con tu pedido</p>
         <div class="lineaarriba"></div>
-      <form>
+      <form id="myForm" action="https://formsubmit.co/quibdosolar@gmail.com" method="POST">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" placeholder="Tu apellido" required>
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Tu apellido" required>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" id="telefono" placeholder="Tu teléfono" required>
+            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Tu teléfono" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="correo" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="correo" placeholder="Tu correo" required>
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="Tu correo" required>
           </div>
         </div>
         <div class="mb-3">
           <label for="descripcion" class="form-label">Descripción</label>
-          <textarea class="form-control" id="descripcion" rows="4" placeholder="Escribe tu mensaje" ></textarea>
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Escribe tu mensaje" ></textarea>
         </div>
         <div class="text-center mb-3"> <!-- Agregamos la clase text-center para centrar el botón -->
           <button type="submit" class="btn btn-primary">Contactar</button>
         </div>
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="http://localhost/paneles-solares/nosotros.php">
+        <input type="hidden" name="_captcha" value="false">
       </form>
     </div>
   </div>
 </div>
 
- <!-- Pie de pagina -->
+  <!-- Pie de pagina -->
     <footer>
         <?php include("./componentes/footer.php")?>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <!-- Swiper JS -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<!-- Initialize Swiper -->
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 300,
-      modifier: 1,
-      slideShadows: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
-</script>
+<!-- Añade el script de SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@12/dist/sweetalert2.all.min.js"></script>
 
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    fetch(this.action, {
+        method: this.method,
+        body: new FormData(this)
+    })
+    .then(function(response) {
+        if (response.ok) {
+            // Formulario enviado con éxito, muestra la alerta
+            Swal.fire({
+                icon: 'success',
+                title: 'Correo enviado',
+                text: 'Tu correo se ha enviado con éxito.',
+                confirmButtonText: 'Aceptar'
+            });
+
+            // Redirige al usuario después de mostrar la alerta
+            setTimeout(function() {
+                window.location = 'http://localhost/paneles-solares/nosotros.php';
+            }, 2000);
+        } else {
+            // Hubo un error en la solicitud, muestra una alerta de error si es necesario
+            console.error("Hubo un error al enviar el correo");
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un error al enviar el correo. Inténtalo de nuevo.',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    });
+});
+</script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Añade axios en tu HTML -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>

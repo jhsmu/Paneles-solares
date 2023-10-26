@@ -98,14 +98,13 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide mt-3 mb-3" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="./img/fondo2.jpeg" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/scroll3.jpeg" height="250px" class="d-block w-100" alt="..." style="object-fit:fill;">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/fondo.jpeg"
-                                height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/scroll.jpeg" height="250px" class="d-block w-100" alt="..." style="object-fit:fill;">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/fondo1.jpeg" height="250px" class="d-block w-100" alt="...">
+                            <img src="./img/scroll1.jpeg" height="250px" class="d-block w-100" alt="..." style="object-fit:fill;">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"

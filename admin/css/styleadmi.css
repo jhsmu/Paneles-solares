@@ -1,3 +1,4 @@
 table.dataTable.no-footer {
     border-bottom: none !important;
+    border-top: 1px solid gray;
 }
